@@ -1,0 +1,56 @@
+
+* {
+    box-sizing: border-box;
+  }
+  
+body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.container-fluid {
+  padding-right:0;
+  padding-left:0;
+  margin-right:auto;
+  margin-left:auto
+}
+
+.search {
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+}
+
+label {
+  padding-right: 0.3em;
+}
+
+.map {
+  height: 300px;
+  width: 100%;
+  padding: 0px;
+  margin-bottom: 0.7em;
+}
+
+.grid-item {
+  float: left;
+}
+.grid-item img {
+  display: block;
+  max-width: 100%;
+}
+
+.img_btn {
+  position: relative;
+  top: 10%;
+  right: 0;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color:red;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}

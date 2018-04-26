@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Nearby POI search">
+    <meta name="keywords" content="Google Map API, Masonry layout">
+    <meta name="author" content="Xiaoyan Liao">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nearby POI search</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div id="searchBar" class="row search">
+        <div class="col-md-8 text-center">
+          <label for="poi">POI </label>
+          <input id="poiName" size="50px" type="text" placeholder="input a POI name, like: bank" />
+          <button id="searchBtn" class="btn btn-primary" type="submit">Search</button> 
+        </div>
+        <div class="col-md-4">
+          <button id="showPlaceBtn" class="btn btn-danger" type="button">My Places</button>
+        </div>
+      </div>
+      <div id="map" class="map">
+      </div>   
+    </div>
+    <div id="result" class="card-columns"></div>
+    <div id="myplace" class="card-columns"></div>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"> </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOaQ5CUM0SfR6IIyVuu4qRpvc_p0og9yQ&libraries=places&callback=initMap" async defer></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="js/elements.js"></script>
+    <script src="js/myplace.js"></script>
+    <script src="js/map.js"></script>
+    </script>
+  </body>
+</html>

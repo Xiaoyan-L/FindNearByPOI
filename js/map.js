@@ -23,26 +23,6 @@ function initMap() {
 
     service = new google.maps.places.PlacesService(map);
     infowindow = new google.maps.InfoWindow();
-    // get user's current location
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-
-            infowindow.setPosition(pos);
-            infowindow.setContent('Location found.');
-            infowindow.open(map);
-            map.setCenter(pos);
-            current_location = pos
-        }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-        });
-        } else {
-        // Browser doesn't support Geolocation
-        handleLocationError(false, infoWindow, map.getCenter());
-    }
 
 }
 

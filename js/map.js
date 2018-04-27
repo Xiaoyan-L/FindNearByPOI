@@ -1,11 +1,17 @@
+/*
+ ***********************************
+ * map init and manipulate
+ * author: Xiaoyan Liao
+ * create at: 2018-04-26
+ ***********************************
+ */
 var map;
 var service;
 var infowindow;
 var markers = [];
 var $result = $('#result');
 var $myplace=$('#myplace');
-
-var current_location = {lat: 37.793986, lng: -122.4469131};  // SF Pier 39
+var current_location = {lat: 37.793986, lng: -122.4469131}; 
 var streetview_url = `https://maps.googleapis.com/maps/api/streetview?size=200x300&heading=151.78&
                     pitch=-0.76&key=AIzaSyCOaQ5CUM0SfR6IIyVuu4qRpvc_p0og9yQ&location=`;
 
@@ -17,6 +23,7 @@ function initMap() {
 
     service = new google.maps.places.PlacesService(map);
     infowindow = new google.maps.InfoWindow();
+    // get user's current location
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
@@ -75,15 +82,11 @@ function callback(results, status) {
 }
 
 function imageCallback(place, status) {
-    console.log(status);
     if (status === google.maps.places.PlacesServiceStatus.OK) {
-        console.log("find the place");
         var photos = place.photos;
         var photo_url;
         if (!photos) {
-            console.log(place);
             photo_url = getStreetViewImg(place.geometry.location);
-            console.log(photo_url);
         } else {
             photo_url = photos[0].getUrl({'maxWidth': 200, 'maxHeight': 300});
         }
@@ -106,12 +109,12 @@ function getPlaceDetail(placeID) {
 
 $(document).ready(function() {
     $('#searchBtn').click(function() {
-        console.log('Input : '+$('#poiName').val());
         $result.show();
         $myplace.hide();
         poi_name = $('#poiName').val();
         setMapOnAll(null);
         markers = [];
+        //TODO: query by page, get next page token
         service.nearbySearch({
             location: current_location,
             radius: 5000,

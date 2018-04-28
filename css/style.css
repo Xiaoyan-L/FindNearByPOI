@@ -54,3 +54,8 @@ label {
   cursor: pointer;
   border-radius: 5px;
 }
+
+img:hover{
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+}

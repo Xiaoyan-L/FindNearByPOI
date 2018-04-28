@@ -12,7 +12,7 @@ var markers = [];
 var $result = $('#result');
 var $myplace=$('#myplace');
 var current_location = {lat: 37.793986, lng: -122.4469131}; 
-var streetview_url = `https://maps.googleapis.com/maps/api/streetview?size=200x300&heading=151.78&
+var streetview_url = `https://maps.googleapis.com/maps/api/streetview?size=640x640&heading=151.78&
                     pitch=-0.76&key=AIzaSyCOaQ5CUM0SfR6IIyVuu4qRpvc_p0og9yQ&location=`;
 
 function initMap() { 
@@ -68,7 +68,7 @@ function imageCallback(place, status) {
         if (!photos) {
             photo_url = getStreetViewImg(place.geometry.location);
         } else {
-            photo_url = photos[0].getUrl({'maxWidth': 200, 'maxHeight': 300});
+            photo_url = photos[0].getUrl({'maxWidth': 600, 'maxHeight': 800});
         }
         $imgDiv = createImgCard(place.name, photo_url, true);
         $result.append($imgDiv);
@@ -77,7 +77,7 @@ function imageCallback(place, status) {
 
 function getStreetViewImg(location) {
     var loca_str = location.lat() + ',' + location.lng();
-    return streetview_url + loca_str;
+    return streetview_url + loca_str
 }
 
 function getPlaceDetail(placeID) {

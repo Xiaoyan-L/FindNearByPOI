@@ -109,4 +109,10 @@ $(document).ready(function() {
         $myplace.show();
         showMyPlaces();
     })
+
+    $('#poiName').keypress(function (e) {
+        if (e.which == 13) {
+            $('#searchBtn').focus().click();
+        }
+    })
 })
